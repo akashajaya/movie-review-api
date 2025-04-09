@@ -28,4 +28,23 @@ public class ReviewController {
         return reviewService.viewReview(movieId);
     }
 
+    @GetMapping("view/{userId}/{movieId}")
+    public ResponseEntity<ReviewData> getReview(@PathVariable int userId,
+                                                @PathVariable int movieId) {
+        return reviewService.getReview(userId, movieId);
+    }
+
+    @PutMapping("update/{userId}/{movieId}")
+    public ResponseEntity<ReviewData> updateReview(@PathVariable int userId, @PathVariable int movieId,
+                                                   @RequestBody ReviewReq reviewReq) {
+        return reviewService.updateReview(userId, movieId, reviewReq);
+    }
+    @DeleteMapping("delete/{userId}/{movieId}")
+    public ResponseEntity<String> deleteReview(@PathVariable int userId, @PathVariable int movieId) {
+        return reviewService.deleteReview(userId, movieId);
+    }
+
+
+
+
 }
